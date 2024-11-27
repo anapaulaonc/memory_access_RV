@@ -23,6 +23,43 @@ This project provides a simulation of memory access functions inspired by the RI
 ### Building and Running
 
 1. Clone this repository:
-   ```bash
+   ```bash 
    git clone https://github.com/your-username/riscv-memory-simulation.git
    cd riscv-memory-simulation
+    ```
+   
+
+
+2. Compile the code:
+    ```bash
+    gcc -o risc_simulation simulation.c
+    ```
+    Run the program:
+    ```bash
+    ./risc_simulation
+    ```
+## Sample Output
+
+The program writes and reads from memory to test the implemented functions. Example output:
+
+``` bash
+lw(0, 0): 0xabacadef
+lb(0, 0): 0xffffffef
+lb(0, 1): 0xffffffad
+lb(0, 2): 0xffffffac
+lb(0, 3): 0xffffffab
+lbu(0, 0): 0xef
+lbu(0, 1): 0xad
+lbu(0, 2): 0xac
+lbu(0, 3): 0xab
+```
+
+## Code Explanation
+
+The simulated memory has a size of 16 KB (MEM_SIZE = 16384). Functions use a base register and an offset to calculate the memory address. The code performs:
+
+- Bounds checking to prevent accessing invalid memory addresses.
+- Alignment verification for word operations.
+
+
+
